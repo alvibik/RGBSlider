@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var palette: UIView!
     
     @IBOutlet var redLabel: UILabel!
@@ -33,6 +33,14 @@ class ViewController: UIViewController {
         greenSlider.maximumValue = 255
         blueSlider.minimumValue = 1
         blueSlider.maximumValue = 255
+    }
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        return greenTextField.resignFirstResponder()
+//    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     @IBAction func redSliderAction() {
