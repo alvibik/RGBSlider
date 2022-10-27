@@ -42,11 +42,11 @@ class ViewController: UIViewController {
     
     private func setupDefaultValues() {
         rgbView.layer.cornerRadius = 20
-        redSlider.value = 0.75
+        redSlider.value = 0.99
         redLabel.text = "\(redSlider.value)"
-        greenSlider.value = 0.65
+        greenSlider.value = 0.66
         greenLabel.text = "\(greenSlider.value)"
-        blueSlider.value = 0.55
+        blueSlider.value = 0.33
         blueLabel.text = "\(blueSlider.value)"
         rgbView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
     }
