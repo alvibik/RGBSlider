@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rgbView.layer.cornerRadius = 20
+        setupDefaultValues()
     }
 
 
@@ -40,4 +40,17 @@ class ViewController: UIViewController {
         rgbView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
     }
     
+    private func setupDefaultValues() {
+        rgbView.layer.cornerRadius = 20
+        redSlider.value = 0.75
+        redLabel.text = "\(redSlider.value)"
+        greenSlider.value = 0.65
+        greenLabel.text = "\(greenSlider.value)"
+        blueSlider.value = 0.55
+        blueLabel.text = "\(blueSlider.value)"
+        rgbView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    }
+    
 }
+
+
