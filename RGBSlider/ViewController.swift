@@ -9,11 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+
+    @IBOutlet var redLabel: UILabel!
+    @IBOutlet var redSlider: UISlider!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
 
+    @IBAction func setRedSlider() {
+        redLabel.text = "\(round(redSlider.value * 100) / 100)"
+    }
+    
 }
-
