@@ -12,10 +12,8 @@ protocol ColorViewControllerDelegate {
 }
 
 final class MainViewController: UIViewController {
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
+
+// MARK: 6. - Override class methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let colorSetingsVC = segue.destination as? ColorSetingsViewController else { return }

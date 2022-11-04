@@ -61,6 +61,8 @@ final class ColorSetingsViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    // MARK: 9. - Private methods
+    
     private func setValueForSliders(_ colorsSliders: UISlider...) {
         let color = CIColor(color: colorSetings)
         
@@ -100,7 +102,7 @@ final class ColorSetingsViewController: UIViewController {
             }
         }
     }
-    private func setColorForRGBView () {
+    private func setColorForRGBView() {
         rgbView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
@@ -108,7 +110,13 @@ final class ColorSetingsViewController: UIViewController {
             alpha: 1
         )
     }
+    
+    @objc private func doneClicked() {
+        view.endEditing (true)
+    }
 }
+
+// MARK: 10. - Extension UITextFieldDelegate
 
 extension ColorSetingsViewController: UITextFieldDelegate {
     
@@ -129,6 +137,21 @@ extension ColorSetingsViewController: UITextFieldDelegate {
         setColorForRGBView()
         return
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action:
+        #selector (self.doneClicked))
+        
+        toolBar.setItems([flexibleSpace, doneButton], animated: true)
+        
+        textField.inputAccessoryView = toolBar
+        
+    }
 }
+
 
 
